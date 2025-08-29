@@ -83,7 +83,7 @@ export default function RegisterForm({ setCurrentTab }: RegisterFormProps) {
                     />
 
                     <InputValidation
-                        label="Password"
+                        label="Confirm Password"
                         name="password"
                         type="password"
                         value={confirmPassword}
@@ -103,7 +103,7 @@ export default function RegisterForm({ setCurrentTab }: RegisterFormProps) {
                         Already have an account?
                     </p>
                     <button
-                        className="text-indigo-800 hover:text-indigo-600 font-semibold"
+                        className="text-indigo-800 hover:text-indigo-600 font-semibold cursor-pointer"
                         onClick={() => setCurrentTab('login')}
                     >
                         Login Now.
@@ -113,7 +113,7 @@ export default function RegisterForm({ setCurrentTab }: RegisterFormProps) {
             </div>
             <div className="mt-auto flex mb-10">
                 <p className="text-default-500">
-                    Copyright @ 2025 MoneyTracker, All Rights Reserved
+                    Copyright @ 2025 MoneyTracker. All Rights Reserved
                 </p>
             </div>
         </div>
