@@ -1,6 +1,6 @@
 'use client';
 
-import { BanknoteArrowDown, BanknoteArrowUp, LayoutDashboard } from 'lucide-react';
+import { BanknoteArrowDown, BanknoteArrowUp, LayoutDashboard, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -44,6 +44,7 @@ export default function Sidebar({ children }: SidebarProps) {
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-yellow-400/10 to-orange-500/10 rounded-full blur-3xl"></div>
             </div>
 
+
             {/* Mobile menu button */}
             <div className="lg:hidden fixed top-4 left-4 z-50">
                 <button
@@ -62,7 +63,7 @@ export default function Sidebar({ children }: SidebarProps) {
                     } lg:translate-x-0 fixed lg:relative inset-y-0 left-0 z-40 w-64 transition-transform duration-300 ease-in-out`}>
                     <div className="flex flex-col h-full bg-white shadow-md">
                         {/* Logo */}
-                        <div className="flex items-center justify-center h-20 mt-5">
+                        <div className="flex items-center justify-center h-10 mt-5">
                             <div className="flex items-center space-x-3">
                                 <div>
                                     <h1 className="text-xl font-bold text-[#393F9D]">
@@ -72,8 +73,21 @@ export default function Sidebar({ children }: SidebarProps) {
                             </div>
                         </div>
 
+                        <div className="p-4">
+                            <div className="flex items-center space-x-3 border border-[#393F9D] rounded-sm p-4">
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-sm font-medium text-[#393F9D] truncate">
+                                        {'TEST'}
+                                    </p>
+                                    <p className="text-xs text-gray-400 truncate">
+                                        {'test@example.com'}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Navigation */}
-                        <nav className="flex-1 px-4 py-6 space-y-2">
+                        <nav className="flex-1 px-4 space-y-2">
                             {navigation.map((item) => (
                                 <Link
                                     key={item.href}
@@ -92,28 +106,12 @@ export default function Sidebar({ children }: SidebarProps) {
 
                         {/* User Profile */}
                         <div className="p-4">
-                            <div className="flex items-center space-x-3 mb-4">
-                                <div className="flex items-center justify-center">
-                                    <span className="text-sm font-medium text-white">
-                                        {"Test"}
-                                    </span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium text-white truncate">
-                                        {'test'}
-                                    </p>
-                                    <p className="text-xs text-gray-400 truncate">
-                                        {'test@example.com'}
-                                    </p>
-                                </div>
-                            </div>
-
                             <div className="space-y-2">
                                 <button
                                     //   onClick={handleLogout}
-                                    className="w-full flex items-center px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors duration-200"
+                                    className="w-full flex items-center px-3 py-2 gap-4 text-sm text-red-500 hover:text-red-800 cursor-pointer"
                                 >
-                                    <span className="mr-2">🚪</span>
+                                    <LogOut />
                                     Sign Out
                                 </button>
                             </div>
