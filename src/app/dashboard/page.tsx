@@ -1,11 +1,13 @@
 "use client";
 
+import MoneyMovement from "@/components/dashboard/MoneyMovement";
+import MoneyTransaction from "@/components/dashboard/MoneyTransaction";
 import OverviewCard from "@/components/dashboard/OverviewCard";
 import TimeToday from "@/components/reusable/TimeToday";
 
 export default function DashboardPage() {
     return (
-        <div className="flex flex-col h-screen p-12">
+        <div className="flex flex-col h-screen p-12 space-y-5">
             {/* Header */}
             <div className="flex w-full justify-between mb-10">
                 <h5 className="font-bold text-[#393F9D] text-4xl">Dashboard</h5>
@@ -14,7 +16,7 @@ export default function DashboardPage() {
                 </h5>
             </div>
             {/* Overview Cards */}
-            <div className="flex justify-between w-full gap-4">
+            <div className="flex flex-col md:flex-row justify-between w-full gap-4">
                 <OverviewCard
                     title="Total Balance"
                     amount="11,000"
@@ -42,6 +44,12 @@ export default function DashboardPage() {
                     bgColorOpacity="bg-[#FF0000]/50"
                     textColor="text-black"
                 />
+            </div>
+
+            {/* Money Movement */}
+            <div className="flex flex-col md:flex-row justify-between w-full gap-4">
+                <MoneyMovement />
+                <MoneyTransaction />
             </div>
         </div>
     );
