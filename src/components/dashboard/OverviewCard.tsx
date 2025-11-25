@@ -41,7 +41,7 @@ const OverviewCard: React.FC<OverviewCardProps> = ({
             </div>
 
             {/* Difference */}
-            <p className="text-xs text-gray-500">{differenceLabel}</p>
+            <p className="text-xs text-gray-500 font-semibold">{differenceLabel}</p>
         </div>
     );
 };
