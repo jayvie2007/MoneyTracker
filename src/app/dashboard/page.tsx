@@ -1,21 +1,25 @@
 "use client";
 
-import MoneyMovement from "@/components/dashboard/MoneyMovement";
+import MoneyMovement from "@/components/reports/MoneyMovement";
 import MoneyTransaction from "@/components/dashboard/MoneyTransaction";
 import OverviewCard from "@/components/dashboard/OverviewCard";
 import TimeToday from "@/components/reusable/TimeToday";
 import { faker } from '@faker-js/faker';
+import { LayoutDashboard } from "lucide-react";
+import UpcomingPayment from "@/components/dashboard/UpcomingPayment";
 
 export default function DashboardPage() {
     return (
-        <div className="flex flex-col h-screen p-12 space-y-5">
+        <div className="flex flex-col p-12 space-y-5">
             {/* Header */}
-            <div className="flex w-full justify-between mb-10">
-                <h5 className="font-bold text-[#393F9D] text-4xl">Dashboard</h5>
-                <h5 className="font-bold text-[#393F9D] text-4xl">
-                    <TimeToday />
-                </h5>
+            <div className="flex w-full justify-between mb-5">
+                <div className="flex items-center gap-2 text-[#393F9D]">
+                    <LayoutDashboard className="w-8 h-8 text-[#393F9D]" />
+                    <h5 className="font-extrabold text-4xl">DASHBOARD</h5>
+                </div>
+                <TimeToday />
             </div>
+            
             {/* Overview Cards */}
             <div className="flex flex-col md:flex-row justify-between w-full gap-4">
                 <OverviewCard
@@ -49,7 +53,7 @@ export default function DashboardPage() {
 
             {/* Money Movement */}
             <div className="flex flex-col md:flex-row justify-between w-full gap-4">
-                <MoneyMovement />
+                <UpcomingPayment />
                 <MoneyTransaction />
             </div>
         </div>

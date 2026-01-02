@@ -1,16 +1,18 @@
 "use client";
 
 import TimeToday from "@/components/reusable/TimeToday";
+import { BanknoteArrowUp } from "lucide-react";
 
 export default function IncomePage() {
     return (
         <div className="flex flex-col h-screen p-12">
             {/* Header */}
-            <div className="flex w-full justify-between mb-10">
-                <h5 className="font-bold text-[#393F9D] text-4xl">Income</h5>
-                <h5 className="font-bold text-[#393F9D] text-4xl">
-                    <TimeToday />
-                </h5>
+            <div className="flex w-full justify-between mb-5">
+                <div className="flex items-center gap-2 text-[#393F9D]">
+                    <BanknoteArrowUp className="w-8 h-8 text-[#393F9D]" />
+                    <h5 className="font-extrabold text-4xl">INCOME</h5>
+                </div>
+                <TimeToday />
             </div>
 
             {/* Body */}
