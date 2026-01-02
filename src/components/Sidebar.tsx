@@ -1,6 +1,6 @@
 'use client';
 
-import { BanknoteArrowDown, BanknoteArrowUp, LayoutDashboard, LogOut } from 'lucide-react';
+import { BanknoteArrowDown, BanknoteArrowUp, ChartPie, FileText, LayoutDashboard, LogOut, PiggyBank, ScrollText, Wallet } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -20,8 +20,12 @@ export default function Sidebar({ children }: SidebarProps) {
 
     const navigation = [
         { name: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard /> },
+        { name: 'Transactions', href: '/transactions', icon: <ScrollText /> },
         { name: 'Income', href: '/income', icon: <BanknoteArrowUp /> },
         { name: 'Expenses', href: '/expenses', icon: <BanknoteArrowDown /> },
+        { name: 'Accounts', href: '/accounts', icon: <Wallet  /> },
+        { name: 'Savings', href: '/savings', icon: <PiggyBank  /> },
+        { name: 'Reports', href: '/reports', icon: <ChartPie /> },
     ];
 
     const isCurrentPath = (href: string) => {
