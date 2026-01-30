@@ -24,6 +24,7 @@ ChartJS.register(
 
 export const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
         legend: {
             position: 'top' as const,
@@ -97,7 +98,7 @@ const MoneyMovement = ({ }) => {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-2">
+            <div className="h-[500px]">
                 <Bar key={windowWidth} options={options} data={data} />
             </div>
         </div>

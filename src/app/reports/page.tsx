@@ -17,9 +17,7 @@ export default function IncomePage() {
             </div>
 
             {/* Body */}
-            <div className="flex justify-between w-full">
-                <MoneyMovement />
-            </div>
+            <MoneyMovement />
         </div>
     );
 }

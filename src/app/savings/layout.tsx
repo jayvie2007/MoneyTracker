@@ -1,15 +1,17 @@
 'use client';
 
+import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 
-export default function DashboardLayout({
+export default function SavingsLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
         <Sidebar>
-            {children}
+            <Navbar />
+            <main className="flex-1 pt-16">{children}</main>
         </Sidebar>
     );
 }

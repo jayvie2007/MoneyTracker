@@ -1,15 +1,17 @@
-'use client';
+"use client";
 
-import Sidebar from '@/components/Sidebar';
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 
 export default function DashboardLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <Sidebar>
-            {children}
-        </Sidebar>
-    );
+  return (
+    <Sidebar>
+      <Navbar />
+      <main className="flex-1 pt-16">{children}</main>
+    </Sidebar>
+  );
 }

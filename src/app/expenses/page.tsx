@@ -1,7 +1,9 @@
 "use client";
 
+import OverviewIconCard from "@/components/reusable/OverviewIconCard";
 import TimeToday from "@/components/reusable/TimeToday";
-import { BanknoteArrowDown } from "lucide-react";
+import { faker } from "@faker-js/faker";
+import { BanknoteArrowDown, Boxes } from "lucide-react";
 
 export default function ExpensesPage() {
     return (
@@ -17,7 +19,27 @@ export default function ExpensesPage() {
 
             {/* Body */}
             <div className="flex justify-between w-full gap-4">
-
+                <OverviewIconCard
+                    title="Monthly Bills"
+                    amount={faker.number.int({ min: 5, max: 20 })}
+                    bgColor="bg-[#393F9D]/20"
+                    textColor="text-[#393F9D]"
+                    IconLucide={Boxes}
+                />
+                <OverviewIconCard
+                    title="Remaining Loan"
+                    amount={faker.number.int({ min: 5, max: 20 })}
+                    bgColor="bg-[#393F9D]/20"
+                    textColor="text-[#393F9D]"
+                    IconLucide={Boxes}
+                />
+                <OverviewIconCard
+                    title="Expenses"
+                    amount={faker.number.int({ min: 5, max: 20 })}
+                    bgColor="bg-[#393F9D]/20"
+                    textColor="text-[#393F9D]"
+                    IconLucide={Boxes}
+                />
             </div>
         </div>
     );

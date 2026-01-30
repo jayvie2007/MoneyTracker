@@ -1,6 +1,6 @@
 'use client';
 
-import { BanknoteArrowDown, BanknoteArrowUp, ChartPie, FileText, LayoutDashboard, LogOut, PiggyBank, ScrollText, Wallet } from 'lucide-react';
+import { BanknoteArrowDown, BanknoteArrowUp, ChartPie, FileText, Info, LayoutDashboard, LogOut, PiggyBank, ScrollText, Settings, Wallet } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -18,14 +18,19 @@ export default function Sidebar({ children }: SidebarProps) {
     const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const navigation = [
+    const mainMenu = [
         { name: 'Dashboard', href: '/dashboard', icon: <LayoutDashboard /> },
         { name: 'Transactions', href: '/transactions', icon: <ScrollText /> },
         { name: 'Income', href: '/income', icon: <BanknoteArrowUp /> },
         { name: 'Expenses', href: '/expenses', icon: <BanknoteArrowDown /> },
-        { name: 'Accounts', href: '/accounts', icon: <Wallet  /> },
-        { name: 'Savings', href: '/savings', icon: <PiggyBank  /> },
+        { name: 'Accounts', href: '/accounts', icon: <Wallet /> },
+        { name: 'Savings', href: '/savings', icon: <PiggyBank /> },
         { name: 'Reports', href: '/reports', icon: <ChartPie /> },
+    ];
+
+    const helpAndSettings = [
+        { name: "Help & Center", href: "/help", icon: <Info /> },
+        { name: "Settings", href: "/settings", icon: <Settings /> },
     ];
 
     const isCurrentPath = (href: string) => {
@@ -43,10 +48,10 @@ export default function Sidebar({ children }: SidebarProps) {
     return (
         <div className="min-h-screen ">
             {/* Background decorative elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-yellow-400/10 to-orange-500/10 rounded-full blur-3xl"></div>
                 <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-yellow-400/10 to-orange-500/10 rounded-full blur-3xl"></div>
-            </div>
+            </div> */}
 
 
             {/* Mobile menu button */}
@@ -91,21 +96,42 @@ export default function Sidebar({ children }: SidebarProps) {
                         </div>
 
                         {/* Navigation */}
-                        <nav className="flex-1 px-4 space-y-2">
-                            {navigation.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={`${isCurrentPath(item.href)
-                                        ? 'bg-[#393F9D]/50 text-[#393F9D]'
-                                        : 'text-[#393F9D] hover:bg-[#393F9D]/50 hover:text-[#393F9D] border-transparent'
-                                        } flex items-center px-4 py-3 text-sm font-medium rounded-lg border transition-all duration-200 group`}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    <span className="text-lg mr-3">{item.icon}</span>
-                                    {item.name}
-                                </Link>
-                            ))}
+                        <nav className="flex-1 px-4 space-y-4">
+                            <div className="space-y-1">
+                                <h4 className="text-[#9ea09f] text-sm">Main Menu</h4>
+                                {mainMenu.map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className={`${isCurrentPath(item.href)
+                                            ? "bg-[#393F9D]/50 text-[#393F9D]"
+                                            : "text-[#393F9D] hover:bg-[#393F9D]/50 hover:text-[#393F9D] border-transparent"
+                                            } flex items-center px-4 py-3 text-sm font-medium rounded-lg border transition-all duration-200 group`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <span className="text-lg mr-3">{item.icon}</span>
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </div>
+
+                            <div className="space-y-1">
+                                <h4 className="text-[#9ea09f] text-sm">Help & Settings</h4>
+                                {helpAndSettings.map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className={`${isCurrentPath(item.href)
+                                            ? "bg-[#393F9D]/50 text-[#393F9D]"
+                                            : "text-[#393F9D] hover:bg-[#393F9D]/50 hover:text-[#393F9D] border-transparent"
+                                            } flex items-center px-4 py-3 text-sm font-medium rounded-lg border transition-all duration-200 group`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <span className="text-lg mr-3">{item.icon}</span>
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </div>
                         </nav>
 
                         {/* User Profile */}
