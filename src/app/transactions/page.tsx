@@ -12,64 +12,80 @@ import { faker } from "@faker-js/faker";
 import { Boxes, Download, Eye, PackageSearch, ScrollText } from "lucide-react";
 import { useState } from "react";
 
-const users = [
+const transactions = [
     {
         id: 1,
-        name: "John Doe",
-        position: "Manager",
-        status: "active",
+        name: "Laptop Installment",
+        type: "Expenses",
+        category: "Installment",
+        amount: 15000,
         createdAt: "2024-01-10",
     },
     {
         id: 2,
-        name: "Jane Smith",
-        position: "Cashier",
-        status: "inactive",
+        name: "Electricity Bill",
+        type: "Expenses",
+        category: "Monthly Bills",
+        amount: 3200,
         createdAt: "2024-01-11",
     },
     {
         id: 3,
-        name: "Mark Johnson",
-        position: "Supervisor",
-        status: "active",
+        name: "Office Supplies",
+        type: "Expenses",
+        category: "Expenses",
+        amount: 4800,
         createdAt: "2024-01-12",
     },
     {
         id: 4,
-        name: "Anna Lee",
-        position: "Staff",
-        status: "active",
+        name: "Water Bill",
+        type: "Expenses",
+        category: "Utilities",
+        amount: 2100,
         createdAt: "2024-01-13",
     },
     {
         id: 5,
-        name: "Chris Brown",
-        position: "Staff",
-        status: "inactive",
+        name: "Team Lunch",
+        type: "Expenses",
+        category: "Expenses",
+        amount: 6700,
         createdAt: "2024-01-14",
     },
     {
         id: 6,
-        name: "Paul Walker",
-        position: "Manager",
-        status: "active",
+        name: "Motorcycle Installment",
+        type: "Expenses",
+        category: "Installment",
+        amount: 25000,
         createdAt: "2024-01-15",
     },
     {
         id: 7,
-        name: "Sarah Connor",
-        position: "Cashier",
-        status: "inactive",
+        name: "Internet Subscription",
+        type: "Expenses",
+        category: "Monthly Bills",
+        amount: 3900,
+        createdAt: "2024-01-16",
+    },
+    {
+        id: 7,
+        name: "Salary Income",
+        type: "Income",
+        category: "Salary",
+        amount: 3900,
         createdAt: "2024-01-16",
     },
 ];
 
 
+
 export default function TransactionsPage() {
     const PAGE_SIZE = 5;
     const [page, setPage] = useState(1);
-    const paginatedUsers = users.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-    const totalPages = Math.ceil(users.length / PAGE_SIZE);
+    const paginatedTransactions = transactions.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+    const totalPages = Math.ceil(transactions.length / PAGE_SIZE);
 
     const [open, setOpen] = useState(false)
 
@@ -147,19 +163,20 @@ export default function TransactionsPage() {
                 </div>
 
                 {/* Tables */}
-                <div className="overflow-hidden rounded-xl">
+                <div className="">
                     <Table>
                         <TableHeader className="bg-[#393f9d] rounded-t-xl">
                             <TableRow>
                                 <TableHead className="text-white">NAME</TableHead>
-                                <TableHead className="text-white">POSITION</TableHead>
-                                <TableHead className="text-white">STATUS</TableHead>
+                                <TableHead className="text-white">TYPE</TableHead>
+                                <TableHead className="text-white">CATEGORY</TableHead>
+                                <TableHead className="text-white">AMOUNT</TableHead>
                                 <TableHead className="text-white">CREATED AT</TableHead>
                                 <TableHead className="text-white">ACTION</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {paginatedUsers.length === 0 ? (
+                            {paginatedTransactions.length === 0 ? (
                                 <TableRow>
                                     <TableCell colSpan={5} className="py-12 text-center">
                                         <div className="flex flex-col items-center gap-2 text-gray-500">
@@ -167,7 +184,7 @@ export default function TransactionsPage() {
                                                 <PackageSearch className="h-10 w-10 text-gray-400" />
                                             </div>
                                             <div className="text-lg font-semibold">
-                                                No users found
+                                                No transaction found
                                             </div>
                                             <div className="text-sm">
                                                 Try adjusting your search or filters
@@ -176,15 +193,16 @@ export default function TransactionsPage() {
                                     </TableCell>
                                 </TableRow>
                             ) : (
-                                paginatedUsers.map((user, index) => (
+                                paginatedTransactions.map((user, index) => (
                                     <TableRow
                                         key={user.id}
                                         className={`border-b-0 ${index % 2 === 0 ? "bg-gray-200" : "bg-white"
                                             }`}
                                     >
                                         <TableCell className="font-medium">{user.name}</TableCell>
-                                        <TableCell>{user.position}</TableCell>
-                                        <TableCell>{user.status}</TableCell>
+                                        <TableCell>{user.type}</TableCell>
+                                        <TableCell>{user.category}</TableCell>
+                                        <TableCell>{user.amount}</TableCell>
                                         <TableCell>{user.createdAt}</TableCell>
                                         <TableCell>
                                             <button className="bg-indigo-500 text-white px-3 py-1 rounded-md hover:bg-indigo-600">
@@ -197,7 +215,7 @@ export default function TransactionsPage() {
                         </TableBody>
                         <TableFooter>
                             <TableRow>
-                                <TableCell colSpan={3}> Total Users: {users.length} </TableCell>
+                                <TableCell colSpan={3}> Total Transaction: {transactions.length} </TableCell>
                                 {/* <TableCell className="text-right">$2,500.00</TableCell> */}
                             </TableRow>
                         </TableFooter>

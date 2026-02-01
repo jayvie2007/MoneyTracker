@@ -1,50 +1,50 @@
-const headers = ["Category", "Description", "Amount", "Time"];
+const headers = ["Name", "Category", "Amount", "Time"];
 const data = [
   {
     id: 1,
-    category: "Bank",
-    description: "Test",
+    name: "Bank",
+    category: "Savings",
     amount: 300,
     time: "10/21/2025",
   },
   {
     id: 2,
-    category: "Food",
-    description: "Test",
+    name: "Food",
+    category: "Expenses",
     amount: 100,
     time: "10/20/2025",
   },
   {
     id: 3,
-    category: "Loan",
-    description: "Test",
+    name: "Loan",
+    category: "Installment",
     amount: 2500,
     time: "10/19/2025",
   },
   {
     id: 4,
-    category: "Rent",
-    description: "Test",
+    name: "Rent",
+    category: "Bills",
     amount: 5000,
     time: "10/18/2025",
   },
   {
     id: 5,
-    category: "Internet",
-    description: "Test",
+    name: "Internet",
+    category: "Bills",
     amount: 1500,
     time: "10/17/2025",
   },
   {
     id: 6,
-    category: "Gas",
-    description: "Test",
+    name: "Gas",
+    category: "Expenses",
     amount: 260,
     time: "10/16/2025",
   },
 ];
 
-const MoneyTransaction = ({}) => {
+const MoneyTransaction = ({ }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm p-5 flex flex-col gap-1 w-full min-h-[500px]">
       <div className="flex justify-between items-center">
@@ -77,10 +77,10 @@ const MoneyTransaction = ({}) => {
               className="hover:bg-gray-700/25 transition-colors duration-200"
             >
               <td className="px-6 py-4 whitespace-nowrap text-center">
-                <div className="text-sm">{data?.category}</div>
+                <div className="text-sm">{data?.name}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-center">
-                <div className="text-sm">{data?.description}</div>
+                <div className="text-sm">{data?.category}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-center">
                 <div className="text-sm">{data?.amount}</div>

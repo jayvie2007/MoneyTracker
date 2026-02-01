@@ -21,7 +21,7 @@ export default function LoginPage() {
   }, [isAuthenticated, user, router]);
 
   return (
-    <div className="flex h-screen p-12">
+    <div className="flex h-screen p-12 bg-[#F1F5FE]">
       {/* Login Form */}
       {currentTab === "login" ? (
         <LoginForm setCurrentTab={setCurrentTab} />
